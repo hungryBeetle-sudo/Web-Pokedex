@@ -10,4 +10,10 @@ import { MainBox } from './main-box';
 })
 export class App {
   protected readonly title = signal('web-pokedex');
+  pkmData = signal({
+    nationalDexNumber: 205,
+    name: "Forretress",
+    types: ["Bug", "Steel"],
+    abilities: ["Sturdy", "Overcoat"]
+  });
 }
