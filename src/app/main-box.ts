@@ -4,7 +4,7 @@ import { Component, input, signal } from "@angular/core";
     selector: 'mainBox',
     template: `<div className="mainBox">
         <div className="artworkBox">
-          <img />
+          <img src={{pkmData().artworkUrl}}/>
         </div>
         <div className="infoBox">
           <h2>National Dex #</h2>
@@ -23,10 +23,19 @@ import { Component, input, signal } from "@angular/core";
               {{ability}}
             }
           </p>
+          <h2>Height</h2>
+          <p>{{pkmData().height}} m</p>
+          <h2>Weight</h2>
+          <p>{{pkmData().weight}} kg</p>
         </div>
       </div>`,
 })
 
 export class MainBox{
-  pkmData = input<{nationalDexNumber: number, name: string, types: string[], abilities: string[]}>({name: '', nationalDexNumber: 0, types: [], abilities: []  });
+  pkmData = input<{
+artworkUrl: string;nationalDexNumber: number, name: string, types: string[], abilities: string[], height: number, weight: number
+}>({
+  name: '', nationalDexNumber: 0, types: [], abilities: [],
+  artworkUrl: "", height: 0, weight: 0
+});
 }
