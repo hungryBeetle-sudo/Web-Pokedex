@@ -1,0 +1,74 @@
+<style>
+    header {
+        display: flex;
+        justify-content: center;
+        background-color: #f73b2e;
+        padding: 0 4rem;
+        height: 15vh;
+        display: flex;
+        align-items: end;
+    }
+
+    input[type="text"]{
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 1rem;
+        border: none;
+    }
+
+    input[type="text"]:focus{
+        outline: none;
+    }
+
+    button{
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: none;
+        font-weight: bold;
+        font-size: 1rem;
+        background-color: rgb(255, 255, 255);
+    }
+
+    form{
+        display: flex;
+        gap: 16px;
+        margin-bottom: 2rem;
+    }
+</style>
+<div className="mainBox">
+    <header>
+        <div class="header">
+            <form [formGroup]="formPesquisa" (ngSubmit)="onSubmit()">
+                <input type="text" formControlName="nome" placeholder="Ex.: Aipom" />
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </header>
+    @if(started()){
+    <div className="artworkBox">
+        <img src={{pkmData().artworkUrl}} />
+    </div>
+    <div className="infoBox">
+        <h2>National Dex #</h2>
+        <p>{{pkmData().nationalDexNumber}}</p>
+        <h2>Name</h2>
+        <p>{{pkmData().name}}</p>
+        <h2>Types</h2>
+        <p>
+            @for(type of pkmData().types; track type) {
+            {{type}}
+            }
+        </p>
+        <h2>Abilities</h2>
+        <p>
+            @for(ability of pkmData().abilities; track ability) {
+            {{ability}}
+            }
+        </p>
+        <h2>Height</h2>
+        <p>{{pkmData().height}} m</p>
+        <h2>Weight</h2>
+        <p>{{pkmData().weight}} kg</p>
+    </div>
+    }
+</div>

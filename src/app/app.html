@@ -61,7 +61,7 @@
     color: var(--gray-700);
   }
 
-  main {
+  /* main {
     width: 100%;
     min-height: 100%;
     display: flex;
@@ -70,19 +70,19 @@
     padding: 1rem;
     box-sizing: inherit;
     position: relative;
-  }
+  } */
 
   .angular-logo {
     max-width: 9.2rem;
   }
 
-  .content {
+  /* .content {
     display: flex;
     justify-content: space-around;
     width: 100%;
     max-width: 700px;
     margin-bottom: 3rem;
-  }
+  } */
 
   .content h1 {
     margin-top: 1.75rem;
@@ -184,10 +184,9 @@
 
 <main class="main">
   <div class="content">
-    <h1>Pokedex</h1>
     <article className="mainContent">
       <div className="mainBox">
-        <mainBox [pkmData]="pkmData()"></mainBox>
+        <mainBox></mainBox>
       </div>
     </article>
     <!-- <div class="left-side">
